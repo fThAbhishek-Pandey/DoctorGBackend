@@ -96,13 +96,6 @@ const addDoctor = async (req, res) => {
     res.json({ success: false, msg: error.message });
   }
 };
-//  API for the admin Login
-const loginAdmin = async ()=>{
-     try {
-        
-     } catch (error) {
-        console.log(error)
-        res.json({success:false, msg:`admin login ${error.message}`})
-     }
-}
+
+
 export default addDoctor;
