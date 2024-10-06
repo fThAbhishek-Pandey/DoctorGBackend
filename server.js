@@ -4,15 +4,14 @@ import 'dotenv/config';
 import ConnectDB  from './config/mongoDB.js';
 import ConnectCloudinary from './config/cloudnary.js';
 import adminRouter from './routes/adminRoute.js';
-import addDoctor from './controllers/adminController.js';
 // app config
 const app = express();
 const port = process.env.PORT ||4000
 ConnectDB()
 ConnectCloudinary();
 //  middleware
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 //  APIs endpoints
 // console.log("admin router",adminRouter)
