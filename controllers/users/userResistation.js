@@ -20,6 +20,7 @@ const resisterUser = async (req,res)=>{
         //    hashing user password
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await  bcrypt.hash(password,salt);
+        console.log (hashPassword);
         const userData = {
             name,
             email,
