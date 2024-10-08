@@ -1,5 +1,5 @@
 // Api to get all doctor list for admin panal
-import DoctorModel from "../modles/DoctorModle.js";
+import DoctorModel from "../../modles/DoctorModle.js";
 const DoctorsList= async (req,res) =>{
       console.log("i am called");
     try {

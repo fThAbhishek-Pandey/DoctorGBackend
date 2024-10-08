@@ -1,4 +1,4 @@
-import DoctorModel from "../modles/DoctorModle.js"
+import DoctorModel from "../../modles/DoctorModle.js"
 
 const changeAvailablity = async (req,res)=>{
         try {

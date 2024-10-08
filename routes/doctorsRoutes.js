@@ -1,5 +1,5 @@
 import express from "express";
-import DoctorsList from "../controllers/DoctorsListConrollers.js";
+import DoctorsList from "../controllers/doctors/DoctorsListConrollers.js";
 const doctorsRouter = express.Router()
 
 

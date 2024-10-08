@@ -2,7 +2,7 @@
 import validator from "validator";
 import bycrypt from "bcrypt";
 import { v2 as cloudinary } from "cloudinary";
-import DoctorModel from "../modles/DoctorModle.js";
+import DoctorModel from "../../modles/DoctorModle.js";
 console.log("hi");
 //  API for adding doctor
 const addDoctor = async (req, res) => {
