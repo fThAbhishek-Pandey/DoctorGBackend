@@ -13,6 +13,6 @@ const adminRouter = express.Router();
 adminRouter.post('/add-doctor',authAdmin,upload.single('image'),addDoctor);
 adminRouter.post('/login',loginAdmin);
 adminRouter.get('/all-doctors',authAdmin,AllDoctors);
-adminRouter.get('/change-visibility',changeAvailablity);
+adminRouter.post('/change-visibility',changeAvailablity);
 // console.log("admin router02",adminRouter)
 export default adminRouter;
