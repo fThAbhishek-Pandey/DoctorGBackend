@@ -18,7 +18,7 @@ try {
     if(isMatch){
         console.log ("matched user ");
         const user_token = jwt.sign ({id:user._id},process.env.JWT_SECKRET)
-      return  res.json({success:true, user_token});
+      return  res.json({success:true, user_token,user});
     }
     else {
       return  res.json({success :false, message:"invalid cridencial" })

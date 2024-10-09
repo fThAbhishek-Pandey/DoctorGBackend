@@ -30,7 +30,7 @@ const resisterUser = async (req,res)=>{
         const user = await newUser.save()
         //  _id  create a token 
         const user_token = jwt.sign({id:user._id}, process.env.JWT_SECKRET)
-        res.json ({success: true, user_token})
+        res.json ({success: true, user_token,user})
       } catch (error) {
           console.log(error);
           res.json({success:false, message:error.message})
