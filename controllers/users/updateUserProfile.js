@@ -2,9 +2,10 @@ import UserModel from "../../modles/UserModel.js"
 import {v2 as cloudnary} from 'cloudinary'
 //  userupdating
 const updateUser = async (req, res)=>{
+  console.log("i am update user controller function : ",req.body)
 try {
-    const {id} = req.body;
     const {
+        id,
         name,
         address,
         phone,
@@ -12,14 +13,9 @@ try {
         dob,
       } = req.body;
       const profileImg = req.file;
-       if(profileImg){
-          //  upload image to cloudnary
-          const imageUpload = await cloudnary.uploader.upload(profileImg.path,{resource_type:'image'})
-          const imgURL= imageUpload.secure_url;
-          await UserModel.findByIdAndUpdate(id, {image:imgURL});
-       }
+      
     console.log("name address phone, gender , dob", name,address,phone,gender,dob)
-    console.log ("i am in user login : ",id);
+    console.log ("i am in user login id  : ",id);
       if (
         !name||
         !address||
@@ -29,13 +25,18 @@ try {
       ) {
         return res.json({success:false, message:"fill complete detail"});
       }
-    
+      if(profileImg){
+        //  upload image to cloudnary
+        const imageUpload = await cloudnary.uploader.upload(profileImg.path,{resource_type:'image'})
+        const imgURL= imageUpload.secure_url;
+        await UserModel.findByIdAndUpdate(id, {image:imgURL});
+     }
     const updateDetails = await UserModel.updateOne({_id:id},{
         $set:{name : name,
         address : address,
         phone : phone,
         gender: gender,
-        dob: dob
+        dob: dob,
         }
     });
     const user = await UserModel.findById(id);

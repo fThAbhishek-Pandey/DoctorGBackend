@@ -24,15 +24,15 @@ const UserSchema = new mongoose.Schema({
         },
         dob:{
             type:String,
-            default:"0000-00-00",
+            default:"00-00-0000",
         },
         phone:{
             type:String,
-            default:"0000000000"
+            default:"1234567890"
         },
         address:{
             type:String,
-            default:""
+            default:"unfilled"
         }
 }, {minimize:false})
 const UserModel  = mongoose.models.user || mongoose.model('user',UserSchema);

@@ -9,5 +9,5 @@ const userRouter = express.Router();
 userRouter.post('/register',resisterUser);
 userRouter.post('/login',loginUser)
 userRouter.get('/profile',[authUser],getUserProfile);
-userRouter.put('/profile/edit', [authUser, upload.single('image')],updateUser);
+userRouter.put('/profile/edit', [upload.single('image'),authUser],updateUser);
 export default userRouter
