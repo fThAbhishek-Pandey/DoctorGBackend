@@ -1,8 +1,9 @@
 import UserModel from "../../modles/UserModel.js"
+import {v2 as cloudnary} from 'cloudinary'
 //  userupdating
 const updateUser = async (req, res)=>{
 try {
-    const id = req.params['id'];
+    const {id} = req.body;
     const {
         name,
         address,
@@ -10,7 +11,14 @@ try {
         gender,
         dob,
       } = req.body;
-      console.log("name address phone, gender , dob", name,address,phone,gender,dob)
+      const profileImg = req.file;
+       if(profileImg){
+          //  upload image to cloudnary
+          const imageUpload = await cloudnary.uploader.upload(profileImg.path,{resource_type:'image'})
+          const imgURL= imageUpload.secure_url;
+          await UserModel.findByIdAndUpdate(id, {image:imgURL});
+       }
+    console.log("name address phone, gender , dob", name,address,phone,gender,dob)
     console.log ("i am in user login : ",id);
       if (
         !name||

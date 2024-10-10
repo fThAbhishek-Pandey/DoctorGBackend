@@ -24,11 +24,11 @@ const UserSchema = new mongoose.Schema({
         },
         dob:{
             type:String,
-            default:"Not Selected",
+            default:"0000-00-00",
         },
         phone:{
             type:String,
-            default:"00000000"
+            default:"0000000000"
         },
         address:{
             type:String,
