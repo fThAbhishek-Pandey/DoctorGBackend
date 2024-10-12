@@ -16,12 +16,17 @@ const paymentRazopay = async (req,res)=>{
              console.log("it is already concelled")
           return res.json({success:false, message:"Appointment Cancelled or Not Found"})
         }
+        if(!appointmentData || appointmentData.payOnine){
+            console.log("it is already paid")
+         return res.json({success:false, message:"Already Paid"})
+       }
       //    creating options for rozapay payment 
       const  options = {
           amount : appointmentData.amount*100,
           currency: process.env.CURRENCY,
           receipt:`${appointmentId}`,
       }
+       console.log("options : ",options)
       //  creation of an order
        const order = await razorpayInstace.orders.create(options);
        console.log("order : ",order)
@@ -31,4 +36,4 @@ const paymentRazopay = async (req,res)=>{
         res.json({success:false, message:error.message});
     }   
 }
-export default paymentRazopay;
+export {paymentRazopay,razorpayInstace};
