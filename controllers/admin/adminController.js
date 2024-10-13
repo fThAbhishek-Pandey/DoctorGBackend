@@ -83,7 +83,7 @@ const addDoctor = async (req, res) => {
       experience,
       about,
       fees,
-      address: JSON.parse(address),
+      address: JSON.stringify(address),
       available,
       date: Date.now(),
     };

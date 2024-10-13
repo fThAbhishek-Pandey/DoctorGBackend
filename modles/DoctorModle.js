@@ -11,6 +11,10 @@ const DoctorSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    password: {
+      type: String,
+      required: true,
+    },
     image: {
       type: String,
       required: true,
@@ -48,7 +52,7 @@ const DoctorSchema = new mongoose.Schema(
       default: {},
     },
     address: {
-      type: Object,
+      type: String,
       required: true,
     },
   },
