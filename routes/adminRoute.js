@@ -9,6 +9,7 @@ import AllDoctors from '../controllers/doctors/AllDoctors.js';
 import changeAvailablity from '../controllers/doctors/doctorController.js';
 import appointmentAdmin from '../controllers/admin/getAllappointment.js';
 import cancelByAdmin from '../controllers/admin/CancelByAdmin.js';
+import adminDashbord from '../controllers/admin/dashboard/dashboardData.js';
 // console.log("multer03: ",multer)
 const adminRouter = express.Router();
 // console.log('I am admin routes',addDoctor)
@@ -18,5 +19,6 @@ adminRouter.get('/all-doctors',authAdmin,AllDoctors);
 adminRouter.post('/change-visibility',authAdmin,changeAvailablity);
 adminRouter.get('/appointments',authAdmin, appointmentAdmin)
 adminRouter.put('/cancel-appointment',authAdmin, cancelByAdmin)
+adminRouter.get('/admin-dashboard',authAdmin, adminDashbord)
 // console.log("admin router02",adminRouter)
 export default adminRouter;
