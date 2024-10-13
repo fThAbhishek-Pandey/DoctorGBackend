@@ -7,6 +7,8 @@ console.log("addDoctor",addDoctor);
 import upload from '../middleware/multer.js'
 import AllDoctors from '../controllers/doctors/AllDoctors.js';
 import changeAvailablity from '../controllers/doctors/doctorController.js';
+import appointmentAdmin from '../controllers/admin/getAllappointment.js';
+import cancelByAdmin from '../controllers/admin/CancelByAdmin.js';
 // console.log("multer03: ",multer)
 const adminRouter = express.Router();
 // console.log('I am admin routes',addDoctor)
@@ -14,5 +16,7 @@ adminRouter.post('/add-doctor',authAdmin,upload.single('image'),addDoctor);
 adminRouter.post('/login',loginAdmin);
 adminRouter.get('/all-doctors',authAdmin,AllDoctors);
 adminRouter.post('/change-visibility',authAdmin,changeAvailablity);
+adminRouter.get('/appointments',authAdmin, appointmentAdmin)
+adminRouter.put('/cancel-appointment',authAdmin, cancelByAdmin)
 // console.log("admin router02",adminRouter)
 export default adminRouter;
