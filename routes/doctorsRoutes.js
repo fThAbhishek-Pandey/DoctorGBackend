@@ -5,6 +5,7 @@ import authDoctor from "../controllers/doctors/DoctorPanal/authDoctor.js";
 import DoctorApopointments from "../controllers/doctors/DoctorPanal/DoctorApopointments.js";
 import appointmentCancelledByDoctor from "../controllers/doctors/DoctorPanal/CancelAppointment.js";
 import  appointmentCompleted from '../controllers/doctors/DoctorPanal/fixedAppointmnents.js'
+import DoctorDashBoard from "../controllers/doctors/DoctorPanal/Dashboard.js";
 const doctorsRouter = express.Router()
 
 
@@ -13,5 +14,5 @@ doctorsRouter.post('/login',LonginDoctor);
 doctorsRouter.get('/appointments', authDoctor, DoctorApopointments)
 doctorsRouter.post('/appointment-complete', authDoctor, appointmentCompleted)
 doctorsRouter.post('/appointment-cancel', authDoctor, appointmentCancelledByDoctor)
-
+doctorsRouter.get('/dashboard',authDoctor, DoctorDashBoard)
 export default doctorsRouter;
