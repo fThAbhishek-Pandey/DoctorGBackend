@@ -83,10 +83,11 @@ const addDoctor = async (req, res) => {
       experience,
       about,
       fees,
-      address: JSON.stringify(address),
+      address: JSON.parse(address),
       available,
       date: Date.now(),
     };
+    console.log(docotorData)
     const newDoctor = new DoctorModel(docotorData);
     await newDoctor.save();
     res.json({ success: true, meg: "love u Abhishek" });

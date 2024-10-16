@@ -52,8 +52,14 @@ const DoctorSchema = new mongoose.Schema(
       default: {},
     },
     address: {
-      type: String,
-      required: true,
+         street :{
+          type : String,
+          required: true,
+         }, 
+         city: {
+          type: String,
+          required:true
+         }
     },
   },
   { minimize: false }
