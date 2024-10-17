@@ -2,12 +2,12 @@
 import DoctorModel from "../../modles/DoctorModle.js"
 import UserModel from "../../modles/UserModel.js";
 import appointmentModel from "../../modles/appointmentModule.js";
-const bookAppointment = async (req, res)=> {
+const bookAppointment = async (req, res)=>{
     console.log("i am bookappointment ; ", req.body);
         try {
             const {id, docId, slotDate, slotTime}= req.body
             const docData= await DoctorModel.findById(docId).select('-password');
-            // console.log("doctor ID ", docData);
+            console.log("doctor Data ", docData);
             if(!docData.available){
                 return res.json({success:false, message: "Not Available"});
             }
